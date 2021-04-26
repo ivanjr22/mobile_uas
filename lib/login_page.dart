@@ -32,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: emailController,
                       decoration: InputDecoration(
                         hintText: 'Email Address',
-                        icon: Icon(Icons.email),
+                        icon: Icon(Icons.email_rounded),
                       ),
                     ),
                     TextField(
@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
                       controller: passwordController,
                       decoration: InputDecoration(
                         hintText: 'Password',
-                        icon: Icon(Icons.input),
+                        icon: Icon(Icons.vpn_key),
                       ),
                     ),
                     Container(
@@ -48,9 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                       child: OutlineButton(
                         splashColor: Colors.grey,
                         onPressed: () {
-                          signInWithEmail(
-                                  emailController.text, passwordController.text)
-                              .then((result) {
+                          signInWithEmail(emailController.text, passwordController.text).then((result) {
                             if (result != null) {
                               Navigator.of(context).push(
                                 MaterialPageRoute(
