@@ -20,8 +20,7 @@ class FirstScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               CircleAvatar(
-                backgroundImage: NetworkImage(
-                  imageUrl,
+                backgroundImage: NetworkImage(imageUrl,
                 ),
                 radius: 60,
                 backgroundColor: Colors.transparent,
