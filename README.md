@@ -6,7 +6,7 @@
 
 # Hasil / Screanshot tampilan aplikasi
 
-![Gambar 1](gambar/1.jpeg)
-![Gambar 2](gambar/2.jpeg)
-![Gambar 3](gambar/3.jpeg)
-![Gambar 4](gambar/4.jpeg)
+![Gambar 1](img/1.jpeg)
+![Gambar 2](img/2.jpeg)
+![Gambar 3](img/3.jpeg)
+![Gambar 4](img/4.jpeg)
