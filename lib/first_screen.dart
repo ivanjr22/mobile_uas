@@ -40,7 +40,7 @@ class FirstScreen extends StatelessWidget {
           children: <Widget>[
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.grey,
+                color: Colors.blue,
                 image: DecorationImage(
                   image: NetworkImage(
                       'https://i.pinimg.com/originals/dd/31/15/dd3115f3f1953bdafd5536093bd1a80f.jpg'),
@@ -49,7 +49,7 @@ class FirstScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 20),
+                  SizedBox(height: 40),
                   Container(
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(imageUrl),
