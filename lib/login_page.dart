@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              FlutterLogo(size: 150),
+              Image(image: AssetImage("assets/logo.png"), height: 110.0),
               SizedBox(height: 50),
               Container(
                 margin: EdgeInsets.all(10),
@@ -120,17 +120,17 @@ class _LoginPageState extends State<LoginPage> {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 10),
-              child: Text(
-                'Sign in with Google ',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.blue,
+         children: <Widget>[
+                  Image(
+                      image: AssetImage("assets/google-logo.png"),
+                      height: 35.0),
+                  Text(
+                    'Sign in with Google',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
                 ),
-              ),
-            )
+             ),
           ],
         ),
       ),

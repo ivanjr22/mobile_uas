@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobile_week10">
    <application
-        android:label="Firebase"
+        android:label="Toko Buku"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
