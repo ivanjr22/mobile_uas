@@ -83,11 +83,19 @@ class FirstScreen extends StatelessWidget {
               },
             ),
             ListTile(
+              leading: Icon(Icons.info),
+              title: Text("About"),
+              onTap: () {
+                MaterialPageRoute route =
+                    MaterialPageRoute(builder: (_) => FirstScreen());
+                Navigator.push(context, route);
+              },
+            ),
+            ListTile(
               leading: Icon(Icons.logout),
               title: Text("Log Out"),
               onTap: () {
                 signOutGoogle();
-
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) {
                   return LoginPage();
