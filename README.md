@@ -1,4 +1,4 @@
-# Pemrograman Mobile Minggu 10
+# Pemrograman Mobile UAS
 
 - Nama  : Muhammad Ivan Fadhilah
 - NIM   : 1931710120

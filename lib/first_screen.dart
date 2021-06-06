@@ -34,6 +34,79 @@ class FirstScreen extends StatelessWidget {
                 ],
               ),
             ),
+            drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.grey,
+                image: DecorationImage(
+                  image: NetworkImage(
+                      'https://i.pinimg.com/originals/dd/31/15/dd3115f3f1953bdafd5536093bd1a80f.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: 20),
+                  Container(
+                    child: CircleAvatar(
+                      backgroundImage: NetworkImage(imageUrl),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    child: Text(
+                      'Selamat Datang' + name ,
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    child: Text(
+                      email,
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              title: Text("Menu"),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Home"),
+              onTap: () {
+                MaterialPageRoute route =
+                    MaterialPageRoute(builder: (_) => FirstScreen());
+                Navigator.push(context, route);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("Log Out"),
+              onTap: () {
+                signOutGoogle();
+                Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) {
+                  return LoginPage();
+                }), ModalRoute.withName('/'));
+              },
+            ),
+          ],
+        ),
+      ),
             body: TabBarView(
               children: [
                 //Pemanggilan Method dari masing-masing page Home
