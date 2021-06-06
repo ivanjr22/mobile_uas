@@ -41,15 +41,10 @@ class FirstScreen extends StatelessWidget {
             DrawerHeader(
               decoration: BoxDecoration(
                 color: Colors.blue,
-                image: DecorationImage(
-                  image: NetworkImage(
-                      'https://i.pinimg.com/originals/dd/31/15/dd3115f3f1953bdafd5536093bd1a80f.jpg'),
-                  fit: BoxFit.cover,
-                ),
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 40),
+                  SizedBox(height: 25),
                   Container(
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(imageUrl),
@@ -58,7 +53,7 @@ class FirstScreen extends StatelessWidget {
                   SizedBox(height: 10),
                   Container(
                     child: Text(
-                      'Selamat Datang' + name ,
+                      'Selamat Datang ' + name ,
                       style: TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -79,12 +74,6 @@ class FirstScreen extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text("Menu"),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
               leading: Icon(Icons.home),
               title: Text("Home"),
               onTap: () {
@@ -98,6 +87,7 @@ class FirstScreen extends StatelessWidget {
               title: Text("Log Out"),
               onTap: () {
                 signOutGoogle();
+
                 Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute(builder: (context) {
                   return LoginPage();
