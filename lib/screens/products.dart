@@ -29,12 +29,19 @@ class Products extends StatelessWidget {
                 itemCount: products.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.bookmark),
+                    ),
                     title: Text(products[index].name),
-                    trailing: Text(products[index].price.toString()),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                     subtitle: Text("Harga Buku : Rp." + products[index].price.toString()),
+                     trailing: GestureDetector(
+                      child: Icon(Icons.edit),
+                      onTap: () {
+                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => EditProduct(products[index])));
-                    },
+                      },
+                    ),
                   );
                 })
             : Center(child: CircularProgressIndicator()));

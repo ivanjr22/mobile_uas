@@ -6,13 +6,13 @@ import 'package:uuid/uuid.dart';
 class StokProvider with ChangeNotifier {
   final firestoreService = FirestoreService();
   String _name;
-  String _stokbuku;
+  double _stokbuku;
   String _stokId;
   var uuid = Uuid();
 
   //Getters
   String get name => _name;
-  String get stokbuku => _stokbuku;
+  double get stokbuku => _stokbuku;
 
   //Setters
   changeName(String value) {
@@ -21,7 +21,7 @@ class StokProvider with ChangeNotifier {
   }
 
   changePrice(String value) {
-    _stokbuku = value;
+    _stokbuku = double.parse(value);
     notifyListeners();
   }
 

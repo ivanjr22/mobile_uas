@@ -2,6 +2,7 @@ import 'package:mobile_week10/screens/edit_stok.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/stok.dart';
+import 'package:mobile_week10/providers/stok_provider.dart';
 
 class Stoks extends StatelessWidget {
   @override
@@ -29,12 +30,19 @@ class Stoks extends StatelessWidget {
                 itemCount: stoks.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    title: Text(stoks[index].name),
-                    trailing: Text(stoks[index].stokbuku.toString()),
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
+                    leading: CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.book),
+                    ),
+                     title: Text(stoks[index].name),
+                     subtitle: Text("Stok Buku : " + stoks[index].stokbuku.toString()),
+                     trailing: GestureDetector(
+                      child: Icon(Icons.edit),
+                      onTap: () {
+                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => EditStok(stoks[index])));
-                    },
+                      },
+                    ),
                   );
                 })
             : Center(child: CircularProgressIndicator()));

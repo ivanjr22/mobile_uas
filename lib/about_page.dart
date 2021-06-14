@@ -4,8 +4,16 @@ import 'package:mobile_week10/screens/stoks.dart';
 import 'package:mobile_week10/sign_in.dart';
 import 'package:mobile_week10/screens/products.dart';
 import 'package:mobile_week10/about_page.dart';
+import 'package:mobile_week10/first_screen.dart';
 
-class FirstScreen extends StatelessWidget {
+class AboutPage extends StatefulWidget {
+  AboutPage(AboutPage);
+
+  @override
+  AboutPageState createState() => AboutPageState();
+}
+
+class AboutPageState extends State<AboutPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,19 +29,6 @@ class FirstScreen extends StatelessWidget {
             appBar: AppBar(
               //AppBar pada aplikasi
               title: Text("Toko Buku Sarjana"),
-              
-              bottom: TabBar(
-                tabs: <Widget>[
-                  Tab(
-                    //Tab bar pada aplikasi
-                    text: "Daftar Buku",
-                  ),
-                  Tab(
-                    //Tab bar pada aplikasi
-                    text: "Daftar Stok Buku",
-                  ),
-                ],
-              ),
             ),
             drawer: Drawer(
         child: ListView(
@@ -106,13 +101,6 @@ class FirstScreen extends StatelessWidget {
           ],
         ),
       ),
-            body: TabBarView(
-              children: [
-                //Pemanggilan Method dari masing-masing page Home
-              Products(),
-              Stoks(),
-            ],
-          )
         ),
       ),
     );

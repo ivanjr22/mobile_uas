@@ -36,7 +36,7 @@ class _EditStokState extends State<EditStok> {
     } else {
       //Controller Update
       nameController.text=widget.stok.name;
-      stokbukuController.text=widget.stok.stokbuku;
+      stokbukuController.text=widget.stok.stokbuku.toString();
       //State Update
       new Future.delayed(Duration.zero, () {
         final stokProvider = Provider.of<StokProvider>(context,listen: false);

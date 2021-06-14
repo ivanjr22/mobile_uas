@@ -1,7 +1,7 @@
 class Stok{
   final String stokId;
   final String name;
-  final String stokbuku;
+  final double stokbuku;
 
   Stok({this.stokId,this.stokbuku, this.name});
 
