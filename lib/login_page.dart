@@ -28,14 +28,14 @@ class _LoginPageState extends State<LoginPage> {
                 width: 350,
                 child: Column(
                   children: [
-                    TextField(
+                    TextFormField(
                       controller: emailController,
                       decoration: InputDecoration(
                         hintText: 'Email Address',
                         icon: Icon(Icons.email_rounded),
                       ),
                     ),
-                    TextField(
+                    TextFormField(
                       obscureText: true,
                       controller: passwordController,
                       decoration: InputDecoration(

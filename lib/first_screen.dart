@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_week10/login_page.dart';
+import 'package:mobile_week10/screens/stoks.dart';
 import 'package:mobile_week10/sign_in.dart';
-import 'package:mobile_week10/pages/homeBuku.dart'; 
-import 'package:mobile_week10/pages/homeStok.dart'; 
+import 'package:mobile_week10/screens/products.dart';
+//import 'package:mobile_week10/pages/homeBuku.dart'; 
+//import 'package:mobile_week10/pages/homeStok.dart'; 
 
 class FirstScreen extends StatelessWidget {
   @override
@@ -108,8 +110,8 @@ class FirstScreen extends StatelessWidget {
             body: TabBarView(
               children: [
                 //Pemanggilan Method dari masing-masing page Home
-              HomeBuku(HomeBuku),
-              HomeStok(HomeStok),
+              Products(),
+              Stoks(),
             ],
           )
         ),
