@@ -1,7 +1,7 @@
 import 'package:mobile_week10/models/product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/product_provider.dart';
+import 'package:mobile_week10/providers/product_provider.dart';
 
 class EditProduct extends StatefulWidget {
   final Product product;
@@ -15,11 +15,15 @@ class EditProduct extends StatefulWidget {
 class _EditProductState extends State<EditProduct> {
   final nameController = TextEditingController();
   final priceController = TextEditingController();
+  final kategoriBukuController = TextEditingController();
+  final tahunBukuController = TextEditingController();
 
   @override
   void dispose() {
     nameController.dispose();
     priceController.dispose();
+    tahunBukuController.dispose();
+    kategoriBukuController.dispose();
     super.dispose();
   }
 
@@ -29,6 +33,9 @@ class _EditProductState extends State<EditProduct> {
       //New Record
       nameController.text = "";
       priceController.text = "";
+      tahunBukuController.text = "";
+      kategoriBukuController.text = "";
+
       new Future.delayed(Duration.zero, () {
         final productProvider = Provider.of<ProductProvider>(context,listen: false);
         productProvider.loadValues(Product());
@@ -37,6 +44,8 @@ class _EditProductState extends State<EditProduct> {
       //Controller Update
       nameController.text=widget.product.name;
       priceController.text=widget.product.price.toString();
+      kategoriBukuController.text=widget.product.kategoriBuku;
+      tahunBukuController.text=widget.product.tahunBuku;
       //State Update
       new Future.delayed(Duration.zero, () {
         final productProvider = Provider.of<ProductProvider>(context,listen: false);
@@ -60,15 +69,29 @@ class _EditProductState extends State<EditProduct> {
           children: <Widget>[
             TextFormField(
               controller: nameController,
-              decoration: InputDecoration(hintText: 'Product Name'),
+              decoration: InputDecoration(hintText: 'Nama Buku'),
               onChanged: (value) {
                 productProvider.changeName(value);
               },
             ),
             TextFormField(
               controller: priceController,
-              decoration: InputDecoration(hintText: 'Product Price'),
+              decoration: InputDecoration(hintText: 'Harga Buku'),
               onChanged: (value) => productProvider.changePrice(value),
+            ),
+            TextFormField(
+              controller: kategoriBukuController,
+              decoration: InputDecoration(hintText: 'Kategori Buku'),
+              onChanged: (value) {
+                productProvider.changekategoriBuku(value);
+              },
+            ),
+            TextFormField(
+              controller: tahunBukuController,
+              decoration: InputDecoration(hintText: 'Tahun Buku'),
+              onChanged: (value) {
+                productProvider.changetahunBuku(value);
+              },
             ),
             SizedBox(
               height: 20.0,

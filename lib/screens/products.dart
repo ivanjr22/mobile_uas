@@ -1,7 +1,7 @@
 import 'package:mobile_week10/screens/edit_product.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/product.dart';
+import 'package:mobile_week10/models/product.dart';
 
 class Products extends StatelessWidget {
   @override

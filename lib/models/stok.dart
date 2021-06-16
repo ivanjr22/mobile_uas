@@ -1,20 +1,26 @@
 class Stok{
   final String stokId;
-  final String name;
-  final double stokbuku;
+  final String namaStok;
+  final String kategoriStok;
+  final String tahunStok;
+  final String stokBuku;
 
-  Stok({this.stokId,this.stokbuku, this.name});
+  Stok({this.stokId,this.stokBuku, this.namaStok, this.kategoriStok, this.tahunStok});
 
   Map<String,dynamic> toMap(){
     return {
       'stokId' : stokId,
-      'name' : name,
-      'stok' : stokbuku
+      'nama' : namaStok,
+      'stokBuku' : stokBuku,
+      'tahunStok' : tahunStok,
+      'kategoriStok' : kategoriStok
     };
   }
 
   Stok.fromFirestore(Map<String, dynamic> firestore)
       : stokId = firestore['stokId'],
-        name = firestore['name'],
-        stokbuku = firestore['stokbuku'];
+        namaStok = firestore['nama'],
+        tahunStok = firestore['tahunStok'],
+        kategoriStok = firestore['kategoriStok'],
+        stokBuku = firestore['stokBuku'];
 }

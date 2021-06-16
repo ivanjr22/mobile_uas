@@ -5,42 +5,57 @@ import 'package:uuid/uuid.dart';
 
 class StokProvider with ChangeNotifier {
   final firestoreService = FirestoreService();
-  String _name;
-  double _stokbuku;
+  String _namaStok;
+  String _kategoriStok;
+  String _tahunStok;
+  String _stokBuku;
   String _stokId;
   var uuid = Uuid();
 
   //Getters
-  String get name => _name;
-  double get stokbuku => _stokbuku;
+  String get namaStok => _namaStok;
+  String get kategoriStok => _kategoriStok;
+  String get tahunStok => _tahunStok;
+  String get stokBuku => _stokBuku;
 
   //Setters
-  changeName(String value) {
-    _name = value;
+  changenamaStok(String value) {
+    _namaStok = value;
     notifyListeners();
   }
 
-  changePrice(String value) {
-    _stokbuku = double.parse(value);
+  changekategoriStok(String value) {
+    _kategoriStok = value;
+    notifyListeners();
+  }
+
+  changetahunStok(String value) {
+    _tahunStok = value;
+    notifyListeners();
+  }
+
+  changestokBuku(String value) {
+    _stokBuku = value;
     notifyListeners();
   }
 
   loadValues(Stok stok){
-    _name=stok.name;
-    _stokbuku=stok.stokbuku;
+    _namaStok=stok.namaStok;
+    _kategoriStok=stok.kategoriStok;
+    _tahunStok=stok.tahunStok;
+    _stokBuku=stok.stokBuku;
     _stokId=stok.stokId;
   }
-
 
   saveStok() {
     print(_stokId);
     if (_stokId == null) {
-      var newStok = Stok(name: name, stokbuku: stokbuku, stokId: uuid.v4());
+      var newStok = Stok(namaStok: namaStok, kategoriStok: kategoriStok, tahunStok: tahunStok, stokBuku: stokBuku, stokId: uuid.v4());
       firestoreService.saveStok(newStok);
     } else {
       //Update
       var updatedStok =
-          Stok(name: name, stokbuku: _stokbuku, stokId: _stokId);
+          Stok(namaStok: namaStok, kategoriStok: kategoriStok, tahunStok: tahunStok, stokBuku: stokBuku, stokId: _stokId);
       firestoreService.saveStok(updatedStok);
     }
   }

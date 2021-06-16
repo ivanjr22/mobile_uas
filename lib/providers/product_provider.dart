@@ -8,11 +8,15 @@ class ProductProvider with ChangeNotifier {
   String _name;
   double _price;
   String _productId;
+  String _kategoriBuku;
+  String _tahunBuku;
   var uuid = Uuid();
 
   //Getters
   String get name => _name;
   double get price => _price;
+  String get kategoriBuku => _kategoriBuku;
+  String get tahunBuku => _tahunBuku;
 
   //Setters
   changeName(String value) {
@@ -25,22 +29,33 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  changekategoriBuku(String value) {
+    _kategoriBuku = value;
+    notifyListeners();
+  }
+
+  changetahunBuku(String value) {
+    _tahunBuku = value;
+    notifyListeners();
+  }
+
   loadValues(Product product){
     _name=product.name;
     _price=product.price;
     _productId=product.productId;
+    _kategoriBuku=product.kategoriBuku;
+    _tahunBuku=product.tahunBuku;
   }
-
 
   saveProduct() {
     print(_productId);
     if (_productId == null) {
-      var newProduct = Product(name: name, price: price, productId: uuid.v4());
+      var newProduct = Product(name: name, price: price, kategoriBuku: kategoriBuku, tahunBuku: tahunBuku, productId: uuid.v4());
       firestoreService.saveProduct(newProduct);
     } else {
       //Update
       var updatedProduct =
-          Product(name: name, price: _price, productId: _productId);
+          Product(name: name, price: _price, kategoriBuku: kategoriBuku, tahunBuku: tahunBuku, productId: _productId);
       firestoreService.saveProduct(updatedProduct);
     }
   }

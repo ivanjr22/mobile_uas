@@ -1,7 +1,7 @@
 import 'package:mobile_week10/screens/edit_stok.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../models/stok.dart';
+import 'package:mobile_week10/models/stok.dart';
 import 'package:mobile_week10/providers/stok_provider.dart';
 
 class Stoks extends StatelessWidget {
@@ -34,8 +34,8 @@ class Stoks extends StatelessWidget {
                     backgroundColor: Colors.blue,
                     child: Icon(Icons.book),
                     ),
-                     title: Text(stoks[index].name),
-                     subtitle: Text("Stok Buku : " + stoks[index].stokbuku.toString()),
+                     title: Text(stoks[index].namaStok),
+                     subtitle: Text("Stok Buku : " + stoks[index].stokBuku.toString()),
                      trailing: GestureDetector(
                       child: Icon(Icons.edit),
                       onTap: () {

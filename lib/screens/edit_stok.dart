@@ -1,7 +1,7 @@
 import 'package:mobile_week10/models/stok.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/stok_provider.dart';
+import 'package:mobile_week10/providers/stok_provider.dart';
 
 class EditStok extends StatefulWidget {
   final Stok stok;
@@ -13,13 +13,17 @@ class EditStok extends StatefulWidget {
 }
 
 class _EditStokState extends State<EditStok> {
-  final nameController = TextEditingController();
-  final stokbukuController = TextEditingController();
+  final namaStokController = TextEditingController();
+  final kategoriStokController = TextEditingController();
+  final tahunStokController = TextEditingController();
+  final stokBukuController = TextEditingController();
 
   @override
   void dispose() {
-    nameController.dispose();
-    stokbukuController.dispose();
+    namaStokController.dispose();
+    kategoriStokController.dispose();
+    tahunStokController.dispose();
+    stokBukuController.dispose();
     super.dispose();
   }
 
@@ -27,16 +31,20 @@ class _EditStokState extends State<EditStok> {
   void initState() {
     if (widget.stok == null) {
       //New Record
-      nameController.text = "";
-      stokbukuController.text = "";
+      namaStokController.text = "";
+      kategoriStokController.text = "";
+      tahunStokController.text = "";
+      stokBukuController.text = "";
       new Future.delayed(Duration.zero, () {
         final stokProvider = Provider.of<StokProvider>(context,listen: false);
         stokProvider.loadValues(Stok());
       });
     } else {
       //Controller Update
-      nameController.text=widget.stok.name;
-      stokbukuController.text=widget.stok.stokbuku.toString();
+      namaStokController.text=widget.stok.namaStok;
+      kategoriStokController.text=widget.stok.kategoriStok;
+      tahunStokController.text=widget.stok.tahunStok;
+      stokBukuController.text=widget.stok.stokBuku;
       //State Update
       new Future.delayed(Duration.zero, () {
         final stokProvider = Provider.of<StokProvider>(context,listen: false);
@@ -59,16 +67,32 @@ class _EditStokState extends State<EditStok> {
         child: ListView(
           children: <Widget>[
             TextFormField(
-              controller: nameController,
-              decoration: InputDecoration(hintText: 'Product Name'),
+              controller: namaStokController,
+              decoration: InputDecoration(hintText: 'Nama Buku'),
               onChanged: (value) {
-                stokProvider.changeName(value);
+                stokProvider.changenamaStok(value);
               },
             ),
             TextFormField(
-              controller: stokbukuController,
-              decoration: InputDecoration(hintText: 'Product Stok'),
-              onChanged: (value) => stokProvider.changePrice(value),
+              controller: kategoriStokController,
+              decoration: InputDecoration(hintText: 'Kategori Buku'),
+              onChanged: (value) {
+                stokProvider.changekategoriStok(value);
+              },
+            ),
+            TextFormField(
+              controller: tahunStokController,
+              decoration: InputDecoration(hintText: 'Tahun Buku'),
+              onChanged: (value) {
+                stokProvider.changetahunStok(value);
+              },
+            ),
+            TextFormField(
+              controller: stokBukuController,
+              decoration: InputDecoration(hintText: 'Stok Buku'),
+              onChanged: (value) {
+                stokProvider.changestokBuku(value);
+              },
             ),
             SizedBox(
               height: 20.0,
